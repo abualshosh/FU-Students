@@ -1,0 +1,21 @@
+import { BaseEntity } from 'src/model/base-entity';
+import { Student } from '../student/student.model';
+import { File } from '../file/file.model';
+import { Observation } from '../observation/observation.model';
+import { Faculty } from '../../../../model/faculty.model';
+import { Supervisor } from '../supervisor/supervisor.model';
+
+export class Project implements BaseEntity {
+  constructor(
+    public id?: number,
+    public name?: string,
+    public details?: any,
+    public objectives?: any,
+    public problems?: any,
+    public students?: Student[],
+    public files?: File[],
+    public observations?: Observation[],
+    public faculty?: Faculty,
+    public supervisor?: Supervisor
+  ) { }
+}

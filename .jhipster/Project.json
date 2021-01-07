@@ -1,0 +1,69 @@
+{
+  "name": "Project",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "details",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "objectives",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "problems",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "student",
+      "otherEntityRelationshipName": "project",
+      "relationshipName": "students"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "file",
+      "otherEntityRelationshipName": "project",
+      "relationshipName": "files"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "observation",
+      "otherEntityRelationshipName": "project",
+      "relationshipName": "observations"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "faculty",
+      "otherEntityRelationshipName": "projects",
+      "relationshipName": "faculty",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "supervisor",
+      "otherEntityRelationshipName": "projects",
+      "relationshipName": "supervisor",
+      "otherEntityField": "fullName"
+    }
+  ],
+  "changelogDate": "20210107175526",
+  "entityTableName": "project",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

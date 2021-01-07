@@ -1,0 +1,52 @@
+{
+  "name": "Faculty",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "code",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "student",
+      "otherEntityRelationshipName": "faculty",
+      "relationshipName": "students"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "project",
+      "otherEntityRelationshipName": "faculty",
+      "relationshipName": "projects"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "announcement",
+      "otherEntityRelationshipName": "faculty",
+      "relationshipName": "announcments"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "supervisor",
+      "otherEntityRelationshipName": "faculties",
+      "relationshipName": "supervisors",
+      "otherEntityField": "fullName",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20210107175726",
+  "entityTableName": "faculty",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

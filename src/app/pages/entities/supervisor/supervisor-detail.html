@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Supervisor
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-label position="fixed">Full Name</ion-label>
+      <div item-content>
+        <span>{{supervisor.fullName}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Role</ion-label>
+      <div item-content>
+        <span>{{supervisor.role}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Gender</ion-label>
+      <div item-content>
+        <span>{{supervisor.gender}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Email</ion-label>
+      <div item-content>
+        <span>{{supervisor.email}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Phone Number</ion-label>
+      <div item-content>
+        <span>{{supervisor.phoneNumber}}</span>
+      </div>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="block" color="primary" (click)="open(supervisor)">{{ 'EDIT_BUTTON' | translate }}</ion-button>
+  <ion-button expand="block" color="danger" (click)="deleteModal(supervisor)">{{ 'DELETE_BUTTON' | translate }}</ion-button>
+</ion-content>
