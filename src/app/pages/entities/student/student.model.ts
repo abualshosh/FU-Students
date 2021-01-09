@@ -12,5 +12,5 @@ export class Student implements BaseEntity {
     public user?: User,
     public faculty?: Faculty,
     public project?: Project
-  ) { }
+  ) {}
 }

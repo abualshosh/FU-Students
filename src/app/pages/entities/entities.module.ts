@@ -44,6 +44,11 @@ const routes: Routes = [
     path: 'file',
     loadChildren: './file/file.module#FilePageModule',
   },
+  ,
+  {
+    path: 'batch',
+    loadChildren: './batch/batch.module#BatchPageModule',
+  },
   /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
 ];
 

@@ -3,7 +3,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ApiService } from 'src/app/services/api/api.service';
 import { createRequestOption } from 'src/app/shared';
-import { Faculty } from '../../model/faculty.model';
+import { Faculty } from './faculty.model';
 
 @Injectable({ providedIn: 'root' })
 export class FacultyService {

@@ -32,7 +32,7 @@
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "faculty",
-      "otherEntityRelationshipName": "announcments",
+      "otherEntityRelationshipName": "announcements",
       "relationshipName": "faculty",
       "otherEntityField": "name"
     }

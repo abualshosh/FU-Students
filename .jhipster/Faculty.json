@@ -27,7 +27,7 @@
       "relationshipType": "one-to-many",
       "otherEntityName": "announcement",
       "otherEntityRelationshipName": "faculty",
-      "relationshipName": "announcments"
+      "relationshipName": "announcements"
     },
     {
       "relationshipType": "many-to-many",

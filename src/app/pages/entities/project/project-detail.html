@@ -47,6 +47,12 @@
         <a>{{project.supervisor?.fullName}}</a>
       </div>
     </ion-item>
+    <ion-item>
+      <ion-label>Batch</ion-label>
+      <div item-content *ngIf="project.batch">
+        <a>{{project.batch?.year}}</a>
+      </div>
+    </ion-item>
   </ion-list>
 
   <ion-button expand="block" color="primary" (click)="open(project)">{{ 'EDIT_BUTTON' | translate }}</ion-button>

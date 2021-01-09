@@ -13,5 +13,5 @@ export class Faculty implements BaseEntity {
     public projects?: Project[],
     public announcments?: Announcement[],
     public supervisors?: Supervisor[]
-  ) { }
+  ) {}
 }

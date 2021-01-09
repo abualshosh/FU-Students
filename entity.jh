@@ -36,7 +36,7 @@ entity Faculty {
     //supervisors
     //students
     //projects
-    //announcments
+    //announcements
 }
 
 enum AnnouncementType {
@@ -52,6 +52,9 @@ entity Announcement{
     open Boolean
     //faculty
   }
+entity Batch{
+	year String
+}
 
 entity Observation {
 	title String
@@ -78,11 +81,14 @@ relationship OneToOne {
 relationship OneToMany {
     Faculty{students(index)} to Student{faculty(name)}
     Faculty{projects(name)} to Project{faculty(name)}
-    Faculty{announcments(title)} to Announcement{faculty(name)}
+    Faculty{announcements(title)} to Announcement{faculty(name)}
     Supervisor{projects(name)} to Project{supervisor(fullName)}
     Project{students(index)} to Student{project(name)}
     Project{files(name)} to File{project(name)}
     Project{observations(title)} to Observation{project(name)}
+    Batch{projects(name)} to Project{batch(year)}
+
+
 }
 
 relationship ManyToMany {

@@ -1,5 +1,5 @@
 import { BaseEntity } from 'src/model/base-entity';
-import { Faculty } from '../../../../model/faculty.model';
+import { Faculty } from '../faculty/faculty.model';
 
 export const enum AnnouncementType {
   'SUBMISSION',

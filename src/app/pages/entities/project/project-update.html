@@ -54,6 +54,15 @@
           >
         </ion-select>
       </ion-item>
+      <ion-item>
+        <ion-label>Batch</ion-label>
+        <ion-select id="field_batch" formControlName="batch" [compareWith]="compareBatch">
+          <ion-select-option [value]="null"></ion-select-option>
+          <ion-select-option [value]="batchOption" *ngFor="let batchOption of batches; trackBy: trackBatchById"
+            >{{batchOption.year}}</ion-select-option
+          >
+        </ion-select>
+      </ion-item>
     </ion-list>
   </form>
 </ion-content>

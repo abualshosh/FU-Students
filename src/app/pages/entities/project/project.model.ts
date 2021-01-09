@@ -2,8 +2,9 @@ import { BaseEntity } from 'src/model/base-entity';
 import { Student } from '../student/student.model';
 import { File } from '../file/file.model';
 import { Observation } from '../observation/observation.model';
-import { Faculty } from '../../../../model/faculty.model';
+import { Faculty } from '../faculty/faculty.model';
 import { Supervisor } from '../supervisor/supervisor.model';
+import { Batch } from '../batch/batch.model';
 
 export class Project implements BaseEntity {
   constructor(
@@ -16,6 +17,7 @@ export class Project implements BaseEntity {
     public files?: File[],
     public observations?: Observation[],
     public faculty?: Faculty,
-    public supervisor?: Supervisor
-  ) { }
+    public supervisor?: Supervisor,
+    public batch?: Batch
+  ) {}
 }

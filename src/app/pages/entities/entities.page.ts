@@ -15,6 +15,8 @@ export class EntitiesPage {
     { name: 'Announcement', component: 'AnnouncementPage', route: 'announcement' },
     { name: 'Observation', component: 'ObservationPage', route: 'observation' },
     { name: 'File', component: 'FilePage', route: 'file' },
+    ,
+    { name: 'Batch', component: 'BatchPage', route: 'batch' },
     /* jhipster-needle-add-entity-page - JHipster will add entity pages here */
   ];
 

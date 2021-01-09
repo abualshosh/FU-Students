@@ -9,6 +9,7 @@ import { Project } from './project.model';
 import { ProjectService } from './project.service';
 import { Faculty, FacultyService } from '../faculty';
 import { Supervisor, SupervisorService } from '../supervisor';
+import { Batch, BatchService } from '../batch';
 
 @Component({
   selector: 'page-project-update',
@@ -18,6 +19,7 @@ export class ProjectUpdatePage implements OnInit {
   project: Project;
   faculties: Faculty[];
   supervisors: Supervisor[];
+  batches: Batch[];
   isSaving = false;
   isNew = true;
   isReadyToSave: boolean;
@@ -30,6 +32,7 @@ export class ProjectUpdatePage implements OnInit {
     problems: [null, []],
     faculty: [null, []],
     supervisor: [null, []],
+    batch: [null, []],
   });
 
   constructor(
@@ -41,6 +44,7 @@ export class ProjectUpdatePage implements OnInit {
     private dataUtils: JhiDataUtils,
     private facultyService: FacultyService,
     private supervisorService: SupervisorService,
+    private batchService: BatchService,
     private projectService: ProjectService
   ) {
     // Watch the form for changes, and
@@ -62,6 +66,12 @@ export class ProjectUpdatePage implements OnInit {
       },
       (error) => this.onError(error)
     );
+    this.batchService.query().subscribe(
+      (data) => {
+        this.batches = data.body;
+      },
+      (error) => this.onError(error)
+    );
     this.activatedRoute.data.subscribe((response) => {
       this.project = response.data;
       this.isNew = this.project.id === null || this.project.id === undefined;
@@ -78,6 +88,7 @@ export class ProjectUpdatePage implements OnInit {
       problems: project.problems,
       faculty: project.faculty,
       supervisor: project.supervisor,
+      batch: project.batch,
     });
   }
 
@@ -130,6 +141,7 @@ export class ProjectUpdatePage implements OnInit {
       problems: this.form.get(['problems']).value,
       faculty: this.form.get(['faculty']).value,
       supervisor: this.form.get(['supervisor']).value,
+      batch: this.form.get(['batch']).value,
     };
   }
 
@@ -157,6 +169,13 @@ export class ProjectUpdatePage implements OnInit {
   }
 
   trackSupervisorById(index: number, item: Supervisor) {
+    return item.id;
+  }
+  compareBatch(first: Batch, second: Batch): boolean {
+    return first && first.id && second && second.id ? first.id === second.id : first === second;
+  }
+
+  trackBatchById(index: number, item: Batch) {
     return item.id;
   }
 }
