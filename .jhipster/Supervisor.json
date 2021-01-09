@@ -1,0 +1,53 @@
+{
+  "name": "Supervisor",
+  "fields": [
+    {
+      "fieldName": "fullName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "role",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "gender",
+      "fieldType": "Gender",
+      "fieldValues": "MALE,FEMALE,OTHER"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phoneNumber",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "project",
+      "otherEntityRelationshipName": "supervisor",
+      "relationshipName": "projects"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "faculty",
+      "otherEntityRelationshipName": "supervisors",
+      "relationshipName": "faculties",
+      "otherEntityField": "name",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20210109121327",
+  "entityTableName": "supervisor",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

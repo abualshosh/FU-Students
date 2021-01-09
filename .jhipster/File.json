@@ -1,0 +1,49 @@
+{
+  "name": "File",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "file",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    },
+    {
+      "fieldName": "uploadDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "observation",
+      "otherEntityRelationshipName": "file",
+      "relationshipName": "observation",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "project",
+      "otherEntityRelationshipName": "files",
+      "relationshipName": "project",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20210109121827",
+  "entityTableName": "file",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

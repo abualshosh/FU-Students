@@ -1,0 +1,53 @@
+{
+  "name": "Student",
+  "fields": [
+    {
+      "fieldName": "index",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fullNameArabic",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phone",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "student",
+      "relationshipName": "user",
+      "otherEntityField": "login",
+      "ownerSide": true,
+      "useJPADerivedIdentifier": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "faculty",
+      "otherEntityRelationshipName": "students",
+      "relationshipName": "faculty",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "project",
+      "otherEntityRelationshipName": "students",
+      "relationshipName": "project",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20210109121127",
+  "entityTableName": "student",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

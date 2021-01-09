@@ -1,0 +1,28 @@
+{
+  "name": "Batch",
+  "fields": [
+    {
+      "fieldName": "year",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "project",
+      "otherEntityRelationshipName": "batch",
+      "relationshipName": "projects"
+    }
+  ],
+  "changelogDate": "20210109121627",
+  "entityTableName": "batch",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

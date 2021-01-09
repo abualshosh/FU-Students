@@ -3,6 +3,7 @@ import { NavController } from '@ionic/angular';
 import { AccountService } from 'src/app/services/auth/account.service';
 import { LoginService } from 'src/app/services/login/login.service';
 import { Account } from 'src/model/account.model';
+import { StudentService } from '../entities/student/student.service';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,7 @@ import { Account } from 'src/model/account.model';
 export class HomePage implements OnInit {
   account: Account;
 
-  constructor(public navController: NavController, private accountService: AccountService, private loginService: LoginService) {}
+  constructor(public navController: NavController, private accountService: AccountService, private loginService: LoginService, private studentService: StudentService) { }
 
   ngOnInit() {
     this.accountService.identity().then((account) => {
@@ -20,6 +21,7 @@ export class HomePage implements OnInit {
         this.goBackToHomePage();
       } else {
         this.account = account;
+        this.loadStudentData()
       }
     });
   }
@@ -35,5 +37,12 @@ export class HomePage implements OnInit {
 
   private goBackToHomePage(): void {
     this.navController.navigateBack('');
+  }
+  loadStudentData() {
+    this.studentService.find(this.account.id).subscribe(res => {
+      console.log(res.body.faculty);
+      localStorage.setItem('project', JSON.stringify(res.body.faculty));
+      localStorage.setItem('faculty', JSON.stringify(res.body.faculty));
+    })
   }
 }

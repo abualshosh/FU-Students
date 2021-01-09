@@ -1,0 +1,51 @@
+{
+  "name": "Announcement",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "content",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "announcementType",
+      "fieldType": "AnnouncementType",
+      "fieldValues": "SUBMISSION,DISCUSSIONS,OBSERVATIONS,OTHERS"
+    },
+    {
+      "fieldName": "startDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "open",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "faculty",
+      "otherEntityRelationshipName": "announcements",
+      "relationshipName": "faculty",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20210109121527",
+  "entityTableName": "announcement",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
