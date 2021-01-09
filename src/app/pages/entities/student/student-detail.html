@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Student
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-label position="fixed">Index</ion-label>
+      <div item-content>
+        <span>{{student.index}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Full Name Arabic</ion-label>
+      <div item-content>
+        <span>{{student.fullNameArabic}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Phone</ion-label>
+      <div item-content>
+        <span>{{student.phone}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>User</ion-label>
+      <div item-content>{{student.user?.login}}</div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Faculty</ion-label>
+      <div item-content *ngIf="student.faculty">
+        <a>{{student.faculty?.name}}</a>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Project</ion-label>
+      <div item-content *ngIf="student.project">
+        <a>{{student.project?.name}}</a>
+      </div>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="block" color="primary" (click)="open(student)">{{ 'EDIT_BUTTON' | translate }}</ion-button>
+  <ion-button expand="block" color="danger" (click)="deleteModal(student)">{{ 'DELETE_BUTTON' | translate }}</ion-button>
+</ion-content>

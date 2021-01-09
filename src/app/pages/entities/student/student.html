@@ -4,7 +4,7 @@
       <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title>
-      Observations
+      Students
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -16,21 +16,27 @@
   </ion-refresher>
 
   <ion-list>
-    <ion-item-sliding *ngFor="let observation of observations; trackBy: trackId" #slidingItem>
-      <ion-item (click)="view(observation)">
+    <ion-item-sliding *ngFor="let student of students; trackBy: trackId" #slidingItem>
+      <ion-item (click)="view(student)">
         <ion-label text-wrap>
-          <ion-text color="primary">
-            <h2>{{observation.title}}</h2>
-          </ion-text>
-          <p>{{observation.detail}}</p>
-          <p>{{observation.creationDate | date:'medium'}}</p>
+          <p>{{student.index}}</p>
+          <p>{{student.fullNameArabic}}</p>
+          <p>{{student.phone}}</p>
         </ion-label>
       </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="primary" (click)="edit(slidingItem, student)">
+          {{ 'EDIT_BUTTON' | translate }}
+        </ion-item-option>
+        <ion-item-option color="danger" (click)="delete(student)">
+          {{ 'DELETE_BUTTON' | translate }}
+        </ion-item-option>
+      </ion-item-options>
     </ion-item-sliding>
   </ion-list>
-  <ion-item *ngIf="!observations?.length">
+  <ion-item *ngIf="!students?.length">
     <ion-label>
-      No Observations found.
+      No Students found.
     </ion-label>
   </ion-item>
 
@@ -39,7 +45,4 @@
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-  <<<<<<< HEAD </ion-content>
-    =======
 </ion-content>
->>>>>>> e7147bc060d06600301120d362c277aaf0e3388e

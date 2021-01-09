@@ -18,5 +18,5 @@ export class Supervisor implements BaseEntity {
     public phoneNumber?: string,
     public projects?: Project[],
     public faculties?: Faculty[]
-  ) {}
+  ) { }
 }

@@ -16,7 +16,6 @@ const routes: Routes = [
     },
     canActivate: [UserRouteAccessService],
   },
-
   {
     path: 'project',
     loadChildren: './project/project.module#ProjectPageModule',

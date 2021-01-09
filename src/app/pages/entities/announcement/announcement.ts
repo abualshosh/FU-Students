@@ -5,7 +5,10 @@ import { HttpResponse } from '@angular/common/http';
 import { JhiDataUtils } from 'ng-jhipster';
 import { Announcement } from './announcement.model';
 import { AnnouncementService } from './announcement.service';
+<<<<<<< HEAD
 import { Faculty } from '../faculty';
+=======
+>>>>>>> e7147bc060d06600301120d362c277aaf0e3388e
 
 @Component({
   selector: 'page-announcement',
