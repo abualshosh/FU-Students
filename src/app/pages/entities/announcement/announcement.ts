@@ -5,10 +5,7 @@ import { HttpResponse } from '@angular/common/http';
 import { JhiDataUtils } from 'ng-jhipster';
 import { Announcement } from './announcement.model';
 import { AnnouncementService } from './announcement.service';
-<<<<<<< HEAD
 import { Faculty } from '../faculty';
-=======
->>>>>>> e7147bc060d06600301120d362c277aaf0e3388e
 
 @Component({
   selector: 'page-announcement',
@@ -36,7 +33,7 @@ export class AnnouncementPage {
   async loadAll(refresher?) {
     const faculty: Faculty = JSON.parse(localStorage.getItem('faculty'))
     this.announcementService
-      .query({ 'facultyId.equals': faculty.id })
+      .query({ 'facultyId.equals': faculty.id, "open": true })
       .pipe(
         filter((res: HttpResponse<Announcement[]>) => res.ok),
         map((res: HttpResponse<Announcement[]>) => res.body)

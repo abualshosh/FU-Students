@@ -5,7 +5,10 @@ import { HttpResponse } from '@angular/common/http';
 import { JhiDataUtils } from 'ng-jhipster';
 import { Observation } from './observation.model';
 import { ObservationService } from './observation.service';
+<<<<<<< HEAD
 import { Project } from '../project';
+=======
+>>>>>>> e7147bc060d06600301120d362c277aaf0e3388e
 
 @Component({
   selector: 'page-observation',
