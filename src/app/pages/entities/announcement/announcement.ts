@@ -32,8 +32,10 @@ export class AnnouncementPage {
 
   async loadAll(refresher?) {
     const faculty: Faculty = JSON.parse(localStorage.getItem('faculty'))
+    console.log(faculty);
+    
     this.announcementService
-      .query({ 'facultyId.equals': faculty.id, "open": true })
+      .query({ 'facultyId.equals': faculty.id, "open.equals": true })
       .pipe(
         filter((res: HttpResponse<Announcement[]>) => res.ok),
         map((res: HttpResponse<Announcement[]>) => res.body)

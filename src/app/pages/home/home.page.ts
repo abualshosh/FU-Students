@@ -41,7 +41,7 @@ export class HomePage implements OnInit {
   loadStudentData() {
     this.studentService.find(this.account.id).subscribe(res => {
       console.log(res.body.faculty);
-      localStorage.setItem('project', JSON.stringify(res.body.faculty));
+      localStorage.setItem('project', JSON.stringify(res.body.project));
       localStorage.setItem('faculty', JSON.stringify(res.body.faculty));
     })
   }
