@@ -19,10 +19,7 @@
 <ion-content class="ion-padding">
   <form *ngIf="form" name="form" [formGroup]="form" (ngSubmit)="save()">
     <ion-list>
-      <ion-item [hidden]="!form.id">
-        <ion-label>ID</ion-label>
-        <ion-input type="hidden" id="id" formControlName="id" readonly></ion-input>
-      </ion-item>
+
       <ion-item>
         <ion-label position="floating">Title</ion-label>
         <ion-input type="text" name="title" formControlName="title"></ion-input>
@@ -32,26 +29,23 @@
       </ion-item>
       <ion-item>
         <ion-label>Creation Date</ion-label>
-        <ion-datetime displayFormat="MM/DD/YYYY HH:mm" formControlName="creationDate" id="field_creationDate"></ion-datetime>
+        <ion-datetime displayFormat="MM/DD/YYYY HH:mm" formControlName="creationDate" id="field_creationDate">
+        </ion-datetime>
       </ion-item>
       <ion-item>
         <ion-label>File</ion-label>
         <ion-select id="field_file" formControlName="file" [compareWith]="compareFile">
           <ion-select-option [value]="null"></ion-select-option>
-          <ion-select-option
-            [value]="fileOption.id === observation.file?.id ? observation.file : fileOption"
-            *ngFor="let fileOption of files; trackBy: trackFileById"
-            >{{fileOption.name}}</ion-select-option
-          >
+          <ion-select-option [value]="fileOption.id === observation.file?.id ? observation.file : fileOption"
+            *ngFor="let fileOption of files; trackBy: trackFileById">{{fileOption.name}}</ion-select-option>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-label>Project</ion-label>
         <ion-select id="field_project" formControlName="project" [compareWith]="compareProject">
           <ion-select-option [value]="null"></ion-select-option>
-          <ion-select-option [value]="projectOption" *ngFor="let projectOption of projects; trackBy: trackProjectById"
-            >{{projectOption.name}}</ion-select-option
-          >
+          <ion-select-option [value]="projectOption" *ngFor="let projectOption of projects; trackBy: trackProjectById">
+            {{projectOption.name}}</ion-select-option>
         </ion-select>
       </ion-item>
     </ion-list>
