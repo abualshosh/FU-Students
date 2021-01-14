@@ -5,6 +5,8 @@ import { HttpResponse } from '@angular/common/http';
 import { JhiDataUtils } from 'ng-jhipster';
 import { File } from './file.model';
 import { FileService } from './file.service';
+import { Announcement, AnnouncementService } from '../announcement';
+import { Project } from '../project';
 
 @Component({
   selector: 'page-file',
@@ -12,6 +14,7 @@ import { FileService } from './file.service';
 })
 export class FilePage {
   files: File[];
+  announcement: Announcement;
 
   // todo: add pagination
 
@@ -21,17 +24,22 @@ export class FilePage {
     private fileService: FileService,
     private toastCtrl: ToastController,
     public plt: Platform
+    , public ann: AnnouncementService
   ) {
     this.files = [];
   }
 
   ionViewWillEnter() {
     this.loadAll();
+    this.loadAnn();
+    console.log(this.checkAnnouncement());
+
   }
 
   async loadAll(refresher?) {
+    const project: Project = JSON.parse(localStorage.getItem("project"))
     this.fileService
-      .query()
+      .query({ "projectId.equals": project.id })
       .pipe(
         filter((res: HttpResponse<File[]>) => res.ok),
         map((res: HttpResponse<File[]>) => res.body)
@@ -87,5 +95,23 @@ export class FilePage {
 
   view(file: File) {
     this.navController.navigateForward('/tabs/entities/file/' + file.id + '/view');
+  }
+  loadAnn() {
+    const project: Project = JSON.parse(localStorage.getItem("project"))
+
+    this.ann.query({
+      "announcementType.in": ['SUBMISSION'], "facultyId.equals": project.id, "oen.equals": true
+    }).subscribe(res => {
+      this.announcement = res.body[0]
+      console.log(res.body[0]);
+
+    })
+  }
+  checkAnnouncement(): boolean {
+
+    if (this.announcement) {
+      return true;
+    }
+    return false
   }
 }

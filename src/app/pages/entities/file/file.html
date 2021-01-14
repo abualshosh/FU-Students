@@ -33,6 +33,12 @@
       No Files found.
     </ion-label>
   </ion-item>
+  <div *ngIf=" !checkAnnouncement()">
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button (click)="new()">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
 
-
+  </div>
 </ion-content>

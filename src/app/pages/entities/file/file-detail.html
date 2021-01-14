@@ -21,7 +21,7 @@
       <ion-label position="fixed">File</ion-label>
       <div item-content>
         <div *ngIf="file.file">
-          <a (click)="openFile(file.fileContentType, file.file)" jhiTranslate="entity.action.open">open</a>
+          <button (click)="openFile(file.fileContentType, file.file)">Download</button>
           {{file.fileContentType}}, {{byteSize(file.file)}}
         </div>
       </div>
